@@ -1,5 +1,6 @@
 import sys
 import subprocess as sp
+
 if(len(sys.argv) != 2):
      print("Incorrect Usage")
      print("Usage: python3 click.py <file containing subdomains>")
@@ -8,6 +9,7 @@ if(len(sys.argv) != 2):
 sp.run("mkdir poc", shell=True)
 inputFile = open(sys.argv[1],"r")
 i=1
+
 for line in inputFile:
      line=line.rstrip("\n")
 
@@ -22,6 +24,8 @@ for line in inputFile:
      i+=1
      outFile=open(outFileName,"w")
      outFile.write(content)
+     outFile.close()
 
      content=""
-print()
+
+inputFile.close()
